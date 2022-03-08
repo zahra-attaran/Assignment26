@@ -1,0 +1,214 @@
+@font-face {
+    font-family: "Vazir";
+    src: url("../font/Vazir.woff") format("woff");
+}
+@font-face {
+    font-family: "Vazir";
+    src: url("../font/Vazir.woff2") format("woff2");
+}
+body{
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#bg{
+    width: 100%;
+    height: 59vh;
+    color: red;
+}
+
+nav {
+    padding: 20px 25px;
+    background-color: #4b3869;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    text-transform: uppercase;
+    font-family: "Century Gothic";
+    color: #a9e4d7;
+    margin-right: 50px;
+}
+.nav{
+    z-index: 100000;
+}
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+.nav-list li {
+    margin-left: 30px;
+}
+.nav-list li a {
+    text-decoration: none;
+    font-family: Verdana;
+    font-size: 16px;
+    color: #a9e4d7;
+}
+#hambergur-toggle {
+    display: none;
+}
+
+.hambergur {
+    width: 30px;
+    height: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+}
+.hambergur .bar {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+    transition: all 0.3s;
+}
+.hambergur .bar::before,
+.hambergur .bar::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+.hambergur .bar::before {
+    transform: translateY(-10px);
+}
+.hambergur .bar::after {
+    transform: translateY(10px);
+}
+.finalImg{
+    background-image: url("../Images/geometry-g1df024afe_1280.png");
+}
+@media (max-width: 600px) {
+    .nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        background-color: #a9e4d7;
+        /*z-index: 1000000;*/
+        height: 100vh;
+    }
+    .nav-list li {
+        margin: 10px 0;
+    }
+    .nav-list li a {
+        display: inline-block;
+        font-size: 20px;
+        padding: 15px 2px;
+        transition: all 0.3s;
+        color: #4b3869;
+    }
+    .nav-list li a:hover {
+        background-color: #a9e4d7;
+        color: #664e88;
+        transform: translateY(-10px);
+    }
+    .hambergur {
+        display: flex;
+        z-index: 999;
+    }
+    #hambergur-toggle:checked ~ .nav-list {
+        transform: none;
+    }
+    #hambergur-toggle:checked ~ .hambergur .bar {
+        background-color: transparent;
+    }
+    #hambergur-toggle:checked ~ .hambergur .bar::before {
+        transform: rotate(45deg);
+    }
+    #hambergur-toggle:checked ~ .hambergur .bar::after {
+        transform: rotate(-45deg);
+    }
+}
+
+
+body label {
+    display: block;
+    line-height: 40px;
+    font-family: "Vazir";
+}
+h2 {
+    font-size: 20px;
+}
+.option-input {
+    appearance: none;
+    top: 13px;
+    height: 40px;
+    width: 40px;
+    transition: all 0.5s ease-out 0.1s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    position: relative;
+    z-index: 1000;
+}
+.option-input:checked {
+    background: #ff4d4f;
+}
+
+.option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    content: "✔";
+    display: inline-block;
+    font-size: 26px;
+    text-align: center;
+    line-height: 40px;
+}
+.option-input:checked::after {
+    animation: click-wave 1.5s;
+    background: #ff4d4f;
+    content: "";
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+@keyframes click-wave {
+    0% {
+        /*height: 40px;*/
+        /*width: 40px;*/
+        opacity: 0;
+    }
+    50% {
+        /*height: 40px;*/
+        /*width: 40px;*/
+        /*height: 200px;*/
+        /*width: 200px;*/
+        /*margin-left: -80px;*/
+        /*margin-top: -80px;*/
+        opacity: 0.5;
+    }  100% {
+        /*height: 200px;*/
+        /*width: 200px;*/
+        /*margin-left: -80px;*/
+        /*margin-top: -80px;*/
+        opacity: 1;
+    }
+}
